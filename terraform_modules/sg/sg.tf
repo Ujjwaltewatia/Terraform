@@ -2,9 +2,8 @@ provider "aws" {
   region = var.REGION
 }
 data "aws_vpc" "vpc_id" {
-  filter {
-    name = "Name"
-    values = [var.vpc_name]
+  tags {
+    "Name" = var.vpc_name
   }
 }
 
